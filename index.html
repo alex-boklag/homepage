@@ -81,6 +81,8 @@
           </div>
           <div class="row">
             <div class="ten wide column">
+              <button id="midnightblue" class="color midnightblue"></button>
+              <button id="chartreuse" class="color chartreuse"></button>
               <h3>Experience</h3>
               <h6>Recent</h6>
               <ul class="timeline">
@@ -101,8 +103,6 @@
                   <p>Became the most important Republican nominating for presidential election run</p>
                 </li>
               </ul>
-
-
               <h6>Back then</h6>
               <ul class="timeline">
                 <li>
@@ -362,6 +362,20 @@
       </div>
     </article>
   </main>
+  <script>
+    function switchToColor(color) {
+      try {
+        document.querySelectorAll(".page").forEach(function (page) {
+          page.style.borderColor = color;
+        });
+        document.querySelectorAll(".avatar").forEach(function (avatar) {
+          avatar.contentDocument.getElementById("circle").setAttribute("fill", color);
+        });
+      } catch (error) { }
+    }
+    document.getElementById("midnightblue").addEventListener("click", switchToColor.bind(this, "midnightblue"));
+    document.getElementById("chartreuse").addEventListener("click", switchToColor.bind(this, "chartreuse"));
+  </script>
 </body>
 
 </html>
